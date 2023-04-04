@@ -5,20 +5,16 @@ import { reducer } from "./state/counter.reducer";
 const Counter: React.FC<ICounterProps> = ({ initialCount }) => {
   const [state, dispatch] = useReducer(reducer, { count: initialCount });
 
-  const performStateActions = (action: string) => {
-    dispatch({ type: action });
-  };
-
   const buttons = useMemo(
     () => (
       <>
-        <button onClick={() => performStateActions(ICounterActions.INCREMENT)}>
+        <button onClick={() => dispatch({ type: ICounterActions.INCREMENT })}>
           Add
         </button>
-        <button onClick={() => performStateActions(ICounterActions.DECREMENT)}>
+        <button onClick={() => dispatch({ type: ICounterActions.DECREMENT })}>
           Subtract
         </button>
-        <button onClick={() => performStateActions(ICounterActions.RESET)}>
+        <button onClick={() => dispatch({ type: ICounterActions.RESET })}>
           Reset
         </button>
       </>
