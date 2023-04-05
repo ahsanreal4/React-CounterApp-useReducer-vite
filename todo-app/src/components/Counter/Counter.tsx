@@ -14,12 +14,19 @@ const Counter: React.FC<ICounterProps> = ({ initialCount }) => {
         <button onClick={() => dispatch({ type: ICounterActions.DECREMENT })}>
           Subtract
         </button>
-        <button onClick={() => dispatch({ type: ICounterActions.RESET })}>
+        <button
+          onClick={() =>
+            dispatch({
+              type: ICounterActions.RESET,
+              payload: { count: initialCount },
+            })
+          }
+        >
           Reset
         </button>
       </>
     ),
-    []
+    [initialCount]
   );
 
   return (

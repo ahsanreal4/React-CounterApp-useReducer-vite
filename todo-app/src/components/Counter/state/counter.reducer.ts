@@ -8,7 +8,8 @@ export function reducer(state: ICounterState, action: IAction) {
     case ICounterActions.DECREMENT:
       return { count: state.count - 1 };
     case ICounterActions.RESET:
-      return { count: (state.count = 0) };
+      const count: number = action.payload?.count ?? 0;
+      return { count: (state.count = count) };
     default:
       return { count: state.count };
   }
