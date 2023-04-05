@@ -13,7 +13,9 @@ function App() {
         <input
           type="number"
           style={{ width: 30, marginLeft: 20 }}
-          onChange={(e: any) => setInitialCount(parseInt(e.target.value))}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setInitialCount(parseInt(e.target.value))
+          }
         />
       </div>
     ),
